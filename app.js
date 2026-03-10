@@ -22,7 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/products', require('./routes/products'));
+app.use('/api/v1/products', require('./routes/products'));
+app.use('/api/v1/categories', require('./routes/categories'));
 
 mongoose.connect('mongodb://localhost:27017/NNPTUD-C3');
 mongoose.connection.on('connected',()=>{
