@@ -25,22 +25,22 @@ app.use('/users', usersRouter);
 app.use('/api/v1/products', require('./routes/products'));
 app.use('/api/v1/categories', require('./routes/categories'));
 
-mongoose.connect('mongodb://localhost:27017/NNPTUD-C3');
-mongoose.connection.on('connected',()=>{
+mongoose.connect('mongodb+srv://khanhabcdt_db_user:ZIG2WgnRbauu2sxu@cluster0.jwwh6zz.mongodb.net/NNPTUD-C3');
+mongoose.connection.on('connected', () => {
   console.log("connected");
 })
-mongoose.connection.on('disconnected',()=>{
+mongoose.connection.on('disconnected', () => {
   console.log("disconnected");
 })
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
